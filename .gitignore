@@ -23,4 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 
-/src/backend/keys.jsx
+/src/backend/keys.js
