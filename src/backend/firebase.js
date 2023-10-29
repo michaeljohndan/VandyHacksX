@@ -43,3 +43,5 @@ function logout() {
     console.log(err.message);
   })
 }
+
+export default {auth, app, db, createUser, logout };
