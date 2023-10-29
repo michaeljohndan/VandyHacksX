@@ -57,6 +57,7 @@
             this.selectedCategory = id;
 
             this.$emit('category-selected', id); 
+            console.log(id);
         }
     }
   };
