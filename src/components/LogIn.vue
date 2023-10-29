@@ -6,15 +6,15 @@
                 <h1>Log In</h1>
                 <div>Please login to use the platform</div>
             </div>
-            <form class="login-card-form">
+            <form class="login-card-form" @submit.prevent="signIn">
                 <div class="form-item">
                 
-                    <input type="text" placeholder="Enter Email" id="emailForm" 
+                    <input type="text" v-model="email" placeholder="Enter Email" id="emailForm" 
                     autofocus required>
                 </div>
                 <div class="form-item">
 
-                    <input type="password" placeholder="Enter Password" id="passwordForm"
+                    <input type="password" v-model="password" placeholder="Enter Password" id="passwordForm"
                      required>
                 </div>
                 <div class="form-item-other">
@@ -32,6 +32,28 @@
         </div>
     </div>
 </template>
+
+<script>
+import firebase from "../backend/firebase.js"
+import { signInWithEmailAndPassword } from "@firebase/auth";
+
+
+export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+    };
+  },
+  methods: {
+    async signIn() {
+        signInWithEmailAndPassword(firebase.auth, this.email, this.password).then(async (cred)=> {
+            console.log(cred.user.uid + " logged in");
+        });
+    }
+  }
+};
+</script>
 
 <style>
 @import url("../reset.css");
