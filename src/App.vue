@@ -3,7 +3,8 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <HelloWorld/>
+  <!-- <HelloWorld/> -->
+  <!-- <button @click="makeMapsQuery()">button</button> -->
 </template>
 
 <style scoped>

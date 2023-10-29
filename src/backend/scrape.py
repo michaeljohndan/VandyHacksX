@@ -19,4 +19,4 @@ for li in bodySoup.find_all('li'):
   else:
     age = None
     
-  print(name.strip(':'), '|', discount, '|', age)
+  print(name.strip(':'), '|', discount, '|', age)w

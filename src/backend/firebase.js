@@ -52,5 +52,13 @@ async function createFood(name, discount, age) {
   });
 }
 
+async function createEvents(name, latitude, longitude) {
+  const eventsRef = await addDoc(collection(db, 'events'), {
+    name: name,
+    latitude: latitude,
+    longitude: longitude,
+  });
+}
+
 export default { auth, app, db, createUser, logout };
-export { createFood }
+export { createFood , createEvents }
