@@ -34,7 +34,6 @@ function createUser(email, password, name) {
   });
 }
 
-
 function logout() {
   signOut(auth).then(()=> {
     console.log("the user signed out");
