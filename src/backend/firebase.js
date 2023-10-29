@@ -44,4 +44,5 @@ function logout() {
   })
 }
 
-export default {auth, app, db, createUser, logout };
+export default { auth, app, db, createUser, createFood, logout };
+export { createFood }
