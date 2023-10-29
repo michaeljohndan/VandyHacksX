@@ -1,7 +1,7 @@
 <template>
     <div class="image-grid">
         <!-- Add a handleImageClick function later -->
-        <div v-for="(category, index) in categories" :key="index" class="image-card" @click="handleImageClick(category.label)">
+        <div v-for="(category, index) in categories" :key="index" class="image-card" @click="handleImageClick(category.id)">
         <p class="category-label">{{ category.label }}</p>
         <img :src="category.image" :alt="category.alt" class="category-image" />
       </div>
@@ -12,34 +12,53 @@
   export default {
     data() {
       return {
+        selectedCategory: null,
         categories: [
           {
+            id: "food",
             label: 'Food',
             image: 'src/assets/food.jpg',
             alt: 'Food Image'
           },
           {
+            id: "outdoor",
             label: 'Outdoor',
             image: "src/assets/outdoor.jpg",
             alt: 'Outdoor Image'
           },
           {
+            id: 'exercise',
             label: 'Exercise',
             image: 'src/assets/workout.jpg',
             alt: 'Exercise Image'
           },
           {
+            id: 'sightsee',
             label: 'Sightsee',
             image: './src/assets/sightsee.jpg',
             alt: 'Sightseeing Image'
           },
           {
+            id: 'events',
             label: 'Events',
             image: 'src/assets/liveevents.jpg',
             alt: 'Events Image'
           }
         ]
       };
+    },
+    model: {
+        prop: 'selected',
+        event: 'category-selected'
+    },
+    props: ['selected'],
+    
+    methods: {
+        handleImageClick(id) {
+            this.selectedCategory = id;
+
+            this.$emit('category-selected', id); 
+        }
     }
   };
   </script>
