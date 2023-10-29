@@ -1,4 +1,4 @@
-import firebase from './firebase.js';
+import {createFood} from './firebase.js';
 
 import axios from 'axios';
 import cheerio from 'cheerio';
@@ -23,6 +23,8 @@ axios.get("https://www.caringseniorservice.com/blog/senior-discount-guides-where
       } else {
         age = null;
       }
+
+      createFood(name, discount, age);
       
       console.log(name.trim(':'), '|', discount, '|', age);
     });
