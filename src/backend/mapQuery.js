@@ -46,13 +46,15 @@ async function makeMapsQuery() {
         const name = result.name;
         const latitude = result.geometry.location.lat;
         const longitude = result.geometry.location.lng;
+
+        createEvents(name, latitude, longitude);
+
         return { name, latitude, longitude };
       })
       
       // console.log("Desired values: ", desiredValues);;
 
       // return desiredValues;
-      createEvents(desiredValues.name, desiredValues.latitude, desiredValues.longitude);
     })
     .catch((error) => {
       console.log("Error: ", error);
