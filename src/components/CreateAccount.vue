@@ -6,26 +6,75 @@
                 <h1>Join us!</h1>
                 <div>Please login to use the platform</div>
             </div>
-            <form class="login-card-form">
+            <form class="login-card-form" @submit.prevent="signIn">
                 <div class="form-item">
                 
-                    <input type="text" placeholder="Enter Email" id="emailForm" 
+                    <input type="text" v-model="name" placeholder="Enter Name" 
                     autofocus required>
                 </div>
                 <div class="form-item">
+                
+                    <input type="text" v-model="email" placeholder="Enter Email" id="emailForm" 
+                    required>
+                </div>
+                <div class="form-item">
 
-                    <input type="password" placeholder="Enter Password" id="passwordForm"
+                    <input type="password" v-model="password" placeholder="Enter Password" id="passwordForm"
                      required>
                 </div>
                 <div class="form-item">
 
-                    <input type="password" placeholder="Re Enter Password" id="reenterpasswordForm" required>
+                    <input type="password" v-model="reenterPassword" placeholder="Re Enter Password" id="reenterpasswordForm" required>
                 </div>
                 <button type="submit">Log In</button>
             </form>
         </div>
     </div>
 </template>
+
+<script>
+import firebase from "../backend/firebase.js"
+
+export default {
+  data() {
+    return {
+      name: '',
+      email: '',
+      password: '',
+      reenterPassword: ''
+    };
+  },
+  methods: {
+    async signIn() {
+      if (this.password === this.reenterPassword) {
+        try {
+          await firebase.createUser(this.email, this.password, this.name);
+          // User signed in.
+        } catch (error) {
+          // Handle errors.
+          console.error(error);
+        }
+      } else {
+        // Passwords do not match - handle this scenario.
+        console.log("Passwords do not match");
+      }
+    }
+  }
+};
+</script>
+
+<style>
+/* Your CSS styles */
+</style>
+This Vue component captures the user's email, password, and re-entered password using v-model directives in the template. The signIn method is triggered when the form is submitted. It checks if the password matches the re-entered password before creating a new user through Firebase's createUserWithEmailAndPassword method.
+
+Please note that this is a basic example and does not include error handling, such as validating email formats or password strength. You may want to add further error checking and user feedback for a production application.
+
+
+
+
+
+
 
 <style>
 @import url("../reset.css");
