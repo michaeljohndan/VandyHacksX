@@ -1,5 +1,9 @@
 <template>
     <div ref="mapContainer" class="google-map"></div>
+    <div>
+      <p>{{ selectedCategory }} bruh</p>
+      
+    </div>
   </template>
   
 <script>
@@ -8,6 +12,12 @@
 import googleMapsApiLoader from 'google-maps-api-loader/src/google-maps-api-loader';
   
   export default {
+    props: {
+    selectedCategory: {
+      type: String, // Adjust the type as needed
+      default: null
+    }
+  },
     data() {
       return {
         map: null
@@ -15,6 +25,7 @@ import googleMapsApiLoader from 'google-maps-api-loader/src/google-maps-api-load
     },
     mounted() {
       this.loadMap();
+      console.log(this.selectedCategory);
     },
     methods: {
       async loadMap() {
@@ -32,7 +43,13 @@ import googleMapsApiLoader from 'google-maps-api-loader/src/google-maps-api-load
           console.error('Error loading Google Maps:', error);
         }
       }
+    },
+    watch: {
+    selectedCategory(newVal) {
+      // Respond to changes in selectedCategory
+      console.log('Selected Category:', newVal);
     }
+  }
   };
   </script>
   
