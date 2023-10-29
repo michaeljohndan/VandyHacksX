@@ -1,5 +1,7 @@
 <script setup>
 import CreateAccount from './CreateAccount.vue';
+import Activities from './Activities.vue';
+import G_Map from './G_Map.vue';
 
 import { ref } from 'vue';
 
@@ -7,6 +9,17 @@ const currentView = ref('logIn');
 
 const showAccount = () => {
   currentView.value = 'createAccount';
+};
+
+const map = () =>{
+    currentView.value = 'gMap';
+}
+
+const selectedCategory = ref(null);
+
+const updateSelectedCategory = (newCategory) => {
+  // console.log(newCategory);
+  selectedCategory.value = newCategory;
 };
 
 </script>
@@ -37,7 +50,7 @@ const showAccount = () => {
                     </div>
                     <a href="#">I forgot my password!</a>
                 </div>
-                <button type="submit">Sign In</button>
+                <button type="submit" @click="map">Sign In</button>
             </form>
             <div class="login-card-footer">
                 Don't have an account? <a @click="showAccount">Create a free account.</a>
@@ -46,6 +59,10 @@ const showAccount = () => {
     </div>
     <div v-else-if="currentView === 'createAccount'">
       <CreateAccount/>
+    </div>
+    <div v-else-if="currentView === 'gMap'">
+        <Activities @category-selected="updateSelectedCategory"/>
+        <G_Map :selectedCategory.sync="selectedCategory" />
     </div>
 </template>
 

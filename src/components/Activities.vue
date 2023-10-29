@@ -13,8 +13,9 @@
     </div>
   </div>
 
+
   </template>
-  
+ 
   <script>
   export default {
     data() {
@@ -59,21 +60,20 @@
         event: 'category-selected'
     },
     props: ['selected'],
-    
+   
     methods: {
         handleImageClick(id) {
-            
-
             this.selectedCategory = id;
-            // console.log(this.selectedCategory);
 
-            this.$emit('category-selected', id); 
+
+            this.$emit('category-selected', id);
         }
     }
   };
   </script>
-  
+ 
   <style>
+
 
   .image-grid {
   position: absolute;
@@ -87,18 +87,18 @@
   /* justify-content: center; */
   z-index: 2;
 }
-  
+ 
   .image-card {
     position: relative;
     text-align: center;
     margin: 10px;
   }
-  
+ 
   .image-card-content {
     position: relative;
     display: inline-block;
   }
-  
+ 
   .category-image {
     width: 200px;
     height: 125px;
@@ -106,10 +106,12 @@
     border-radius: 8px;
   }
 
+
   .text2 {
     margin: 10px;
     margin-top: 0px;
   }
+
 
   .text {
     font: Georgia;
@@ -118,7 +120,7 @@
     /* background: rgba(255, 255, 255, 0.7); */
     transition: background-color 0.3s ease-in-out;
   }
-  
+ 
   .category-label {
     font: Georgia;
     font-size: xx-large;
@@ -135,9 +137,8 @@
     border-radius: 8px;
     transition: background-color 0.3s ease-in-out;
   }
-  
+ 
   .image-card-content:hover .category-label {
     background: rgba(255, 255, 255, 0.9);
   }
   </style>
-  
