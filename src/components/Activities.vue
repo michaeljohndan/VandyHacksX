@@ -62,7 +62,10 @@
     
     methods: {
         handleImageClick(id) {
+            
+
             this.selectedCategory = id;
+            // console.log(this.selectedCategory);
 
             this.$emit('category-selected', id); 
         }
