@@ -1,12 +1,17 @@
 <template>
     <div ref="mapContainer" class="google-map"></div>
+    <div v-if="category">
+      {{ category }}
+    </div>
   </template>
   
 <script>
   import GoogleMapsApiLoader from 'google-maps-api-loader';
   import {key} from '../backend/keys.js';
-import googleMapsApiLoader from 'google-maps-api-loader/src/google-maps-api-loader';
+  import googleMapsApiLoader from 'google-maps-api-loader/src/google-maps-api-loader';
   
+
+
   export default {
     data() {
       return {
@@ -32,7 +37,8 @@ import googleMapsApiLoader from 'google-maps-api-loader/src/google-maps-api-load
           console.error('Error loading Google Maps:', error);
         }
       }
-    }
+    },
+    props: ['category']
   };
   </script>
   

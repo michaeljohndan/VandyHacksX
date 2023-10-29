@@ -1,6 +1,5 @@
 <template>
     <div class="image-grid">
-        <!-- Add a handleImageClick function later -->
         <div v-for="(category, index) in categories" :key="index" class="image-card" @click="handleImageClick(category.id)">
         <p class="category-label">{{ category.label }}</p>
         <img :src="category.image" :alt="category.alt" class="category-image" />
@@ -58,6 +57,7 @@
             this.selectedCategory = id;
 
             this.$emit('category-selected', id); 
+            console.log(id);
         }
     }
   };
