@@ -11,14 +11,11 @@ app.get('/map-query', async (req, res) => {
   // console.log("res", response);
   // const data = await response.json();
 
-  const data = await makeMapQuery();
+  const data = await makeMapsQuery();
 
   res.send(data);
 })
 
-app.post((req, res) => { 
-  makeMapQuery();
-})
 
 app.post('/scrape', (req, res) => { 
   scrape();
