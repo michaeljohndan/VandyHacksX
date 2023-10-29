@@ -65,36 +65,46 @@ export default {
 
 <style>
 /* Your CSS styles */
+
 </style>
-This Vue component captures the user's email, password, and re-entered password using v-model directives in the template. The signIn method is triggered when the form is submitted. It checks if the password matches the re-entered password before creating a new user through Firebase's createUserWithEmailAndPassword method.
-
-Please note that this is a basic example and does not include error handling, such as validating email formats or password strength. You may want to add further error checking and user feedback for a production application.
 
 
 
 
 
 
-
-<style>
-@import url("../reset.css");
+<style scoped>
+@import url("../components/reset.css");
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
 
-body {
+
+
+.login-card-container {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    background: midnightblue;
+    background-image: url(../assets/elderly.jpg);
     display: flex;
     justify-content: center;
     align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    
 }
 
 
 /* Login Card */
 .login-card {
     width: 450px;
-    background: rgba(255, 255, 255, .5);
+    background: rgba(255, 255, 255, .8);
     padding: 4rem;
     border-radius: 10px;
     position: relative;
@@ -229,6 +239,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: .5s;
+    margin-left: 20%;
 }
 
 .login-card button:hover {

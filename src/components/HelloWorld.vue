@@ -1,21 +1,41 @@
+<script setup>
+import LogIn from './LogIn.vue'; // Ensure the correct path to your component
+import { ref } from 'vue';
+
+const currentView = ref('helloWorld');
+
+const showLogIn = () => {
+  currentView.value = 'logIn';
+};
+
+</script>
+
 
 <template>
-  <div class="banner">
-    <h3 class="text">Senior Explorer</h3>
-      <div class="content">
-        <h1>OUT IS THE NEW IN</h1>
-        
-        <p>Explore your surroundings, find new hobbies, and socialize with senior peers with the option of help from volunteer caretakers! Click below to sign up!</p>
-        <div class="button">
-          <button type="button"><span></span>Senior</button>
-          <button type="button"><span></span>Volunteer</button>
+  <div>
+    <div class="banner" v-if="currentView === 'helloWorld'">
+      <h3 class="text">Senior Explorer</h3>
+        <div class="content">
+          <h1>OUT IS THE NEW IN</h1>
+          
+          <p>Explore your surroundings, find new hobbies, and socialize with senior peers with the option of help from volunteer caretakers! Click below to sign up!</p>
+          <div class="button">
+            <button type="button" @click="showLogIn" ><span></span>Senior</button>
+            <button type="button" @click="showLogIn"><span></span>Volunteer</button>
+          </div>
         </div>
-      </div>
 
+    </div>
+    <div v-else-if="currentView === 'logIn'">
+      <LogIn />
+    </div>
+    <div v-else-if="currentView === 'createAccount'">
+      <LogIn/>
+    </div>
   </div>
 </template>
 
-<style>
+<style> 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -25,6 +45,7 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
 
 .banner{
   width: 100%;
