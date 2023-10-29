@@ -1,8 +1,6 @@
 <template>
+  <div class ="map-container">
   <div ref="mapContainer" class="google-map"></div>
-  <div>
-    <p>{{ selectedCategory }} bruh</p>
-    
   </div>
 </template>
 
@@ -41,7 +39,7 @@ export default {
 
         this.map = new google.maps.Map(this.$refs.mapContainer, {
           center: { lat: 36.1627, lng: -86.7816 }, // Initial map center (New York coordinates)
-          zoom: 12 // Initial zoom level
+          zoom: 13 // Initial zoom level
         });
       } catch (error) {
         console.error('Error loading Google Maps:', error);
@@ -92,8 +90,13 @@ export default {
 </script>
 
 <style>
+.map-container {
+  position: relative;
+}
+
 .google-map {
   width: 100%;
   height: 100vh; /* Set the height as per your requirement */
+  z-index: 1;
 }
 </style>

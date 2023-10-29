@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class ="text2"  style="text-align: center; color: white;">
-    <p class = "text">Click on what you would like to do!</p>
+    <div class ="text2"  style="text-align: right; color: white;">
+    <!-- <p class = "text">Click on what you would like to do!</p> -->
   </div>
    
     <div class="image-grid">
@@ -74,13 +74,14 @@
 
   .image-grid {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 0%;
+  right: 0;
+  width: 20%;
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-end;
+  /* justify-content: center; */
   z-index: 2;
 }
   
@@ -96,14 +97,15 @@
   }
   
   .category-image {
-    width: 275px;
-    height: 200px;
+    width: 200px;
+    height: 125px;
     object-fit: cover;
     border-radius: 8px;
   }
 
   .text2 {
-    margin: 20px;
+    margin: 10px;
+    margin-top: 0px;
   }
 
   .text {
@@ -111,7 +113,6 @@
     color: black;
     font-weight: bold;
     /* background: rgba(255, 255, 255, 0.7); */
-    border-radius: 8px;
     transition: background-color 0.3s ease-in-out;
   }
   
