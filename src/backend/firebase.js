@@ -44,5 +44,13 @@ function logout() {
   })
 }
 
-export default { auth, app, db, createUser, createFood, logout };
+async function createFood(name, discount, age) {
+  const foodRef = await addDoc(collection(db, 'foods'), {
+    name: name,
+    discount: discount,
+    age: age
+  });
+}
+
+export default { auth, app, db, createUser, logout };
 export { createFood }
